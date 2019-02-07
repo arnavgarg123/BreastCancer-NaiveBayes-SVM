@@ -19,7 +19,7 @@ print(sns.boxplot(x='diagnosis', y='perimeter_mean', data=df))
 X = df.drop('diagnosis', axis=1)
 y = df['diagnosis']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
-model = svm.SVC(gamma='scale')
+model = svm.SVC(gamma='scale', kernel='linear')
 model.fit(X_train, y_train)
 prediction = model.predict(X_test)
 print(metrics.accuracy_score(prediction, y_test) * 100)
